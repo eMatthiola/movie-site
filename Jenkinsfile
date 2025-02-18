@@ -23,7 +23,7 @@ pipeline {
 
         stage('Build Backend') {
             steps {
-                dir('server') {  
+                dir('server/Movie') {  
                     sh 'mvn clean package -DskipTests'
                 }
             }
