@@ -11,7 +11,7 @@ import reiner.example.movie.model.Movie;
  * @Author Matthiola
  * @Date 2025/2/9 11:39
  */
-
+@Repository
 public interface MovieRepository extends MongoRepository<Movie, ObjectId> {
 
 }
