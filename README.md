@@ -17,6 +17,8 @@ LIMIT + OFFSET 方式
 
 @Transactional 事务注解
 配置 事务传播机制（PROPAGATION_REQUIRED、PROPAGATION_NESTED）
+
+
 二、Spring 核心功能
 依赖注入（DI）& 控制反转（IoC）
 
@@ -30,6 +32,8 @@ AOP（面向切面编程）
 
 ApplicationListener 监听自定义事件
 应用场景：用户注册成功后发送通知
+
+
 三、Spring MVC 处理请求
 请求映射
 
@@ -45,6 +49,8 @@ ApplicationListener 监听自定义事件
 
 @ExceptionHandler 处理特定异常
 @ControllerAdvice 统一异常捕获
+
+
 四、拦截器、过滤器、权限控制
 拦截器（Interceptor）
 
@@ -73,6 +79,8 @@ MQ（消息队列）
 
 异步任务处理
 结合 Kafka / RabbitMQ 实现 秒杀/抢购系统
+
+
 六、日志管理
 SLF4J + Logback
 
@@ -82,6 +90,8 @@ SLF4J + Logback
 
 MDC.put("traceId", UUID.randomUUID().toString())
 配合 ELK（Elasticsearch + Logstash + Kibana）
+
+
 七、文件上传 & 下载
 Spring MVC 处理上传
 
@@ -91,6 +101,8 @@ Spring MVC 处理上传
 
 分片上传 + 秒传机制
 使用 MinIO / OSS / S3
+
+
 八、测试 & CI/CD
 单元测试
 
