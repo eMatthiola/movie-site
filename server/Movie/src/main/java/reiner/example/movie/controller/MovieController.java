@@ -1,5 +1,8 @@
 package reiner.example.movie.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +23,7 @@ import java.util.stream.Stream;
  * @Date 2025/2/9 11:24
  */
 
+@Tag(name = "Movie Management API", description = "Provides movie query functionality")
 @RestController
 @RequestMapping("/api/v1/movies")
 public class MovieController {
@@ -28,8 +32,9 @@ public class MovieController {
 
     /**
      * Get all movies
-     * @return
+     * @return List of movies
      */
+    @Operation(summary = "Get all movies", description = "Returns a list of all movies")
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
         return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
@@ -39,10 +44,12 @@ public class MovieController {
     /**
      * Search for a movie by keyword
      * @param keyword
-     * @return
+     * @return List of matching movies
      */
+    @Operation(summary = "Search for a movie by keyword", description = "Returns a list of movies that match the search keyword")
     @GetMapping("/search")
-    public ResponseEntity<List<Movie>> searchMovie(@RequestParam String keyword) {
+    public ResponseEntity<List<Movie>> searchMovie(
+            @Parameter(description = "Movie title keyword", required = true) @RequestParam String keyword) {
         List<Movie> filteredMovies = movieService.allMovies().stream()
                 .filter(movie -> movie.getTitle().toLowerCase().contains(keyword.toLowerCase()))
                 .collect(Collectors.toList());
@@ -57,10 +64,15 @@ public class MovieController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable ObjectId id) {
+    public ResponseEntity<Optional<Movie>> getMovieById(
+            @Parameter(description = "Movie ID", required = true) @PathVariable ObjectId id) {
         return new ResponseEntity<Optional<Movie>>(movieService.getMovieById(id), HttpStatus.OK);
     }
 
-
+    /**
+     * pagenagtion
+     * @param movie
+     * @return
+     */
     public ResponseEntity<Optional<Movie>> get;
 }
