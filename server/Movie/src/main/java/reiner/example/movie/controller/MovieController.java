@@ -26,6 +26,7 @@ import java.util.stream.Stream;
 @Tag(name = "Movie Management API", description = "Provides movie query functionality")
 @RestController
 @RequestMapping("/api/v1/movies")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MovieController {
     @Autowired
     private MovieService movieService;
@@ -74,5 +75,5 @@ public class MovieController {
      * @param movie
      * @return
      */
-    public ResponseEntity<Optional<Movie>> get;
+//    public ResponseEntity<Optional<Movie>> get;
 }
