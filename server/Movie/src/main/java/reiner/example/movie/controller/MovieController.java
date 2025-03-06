@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +30,8 @@ import java.util.stream.Stream;
 @RequestMapping("/api/v1/movies")
 //@CrossOrigin(origins = "http://localhost:3000")
 public class MovieController {
+    private static final Logger log = LoggerFactory.getLogger(MovieController.class);
+
     @Autowired
     private MovieService movieService;
 
@@ -38,7 +42,10 @@ public class MovieController {
     @Operation(summary = "Get all movies", description = "Returns a list of all movies")
     @GetMapping
     public ResponseEntity<List<Movie>> getAllMovies() {
-        return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
+        log.info("Received request to fetch all movies.");
+        List<Movie> movies = movieService.allMovies();
+        log.info("Returning {} movies.", movies.size());
+        return ResponseEntity.ok(movies);
 
     }
 
