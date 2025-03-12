@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 @Tag(name = "Movie Management API", description = "Provides movie query functionality")
 @RestController
 @RequestMapping("/api/v1/movies")
-//@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = {"http://localhost:3000", "https://32c0-38-34-84-35.ngrok-free.app"})
 public class MovieController {
     private static final Logger log = LoggerFactory.getLogger(MovieController.class);
 
