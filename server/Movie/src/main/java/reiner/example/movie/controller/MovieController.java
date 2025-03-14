@@ -67,14 +67,14 @@ public class MovieController {
     }
 
     /**
-     * Get a movie by id
-     * @param id
+     * Get a movie by imdbId
+     * @param imdbId
      * @return
      */
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Movie>> getMovieById(
-            @Parameter(description = "Movie ID", required = true) @PathVariable ObjectId id) {
-        return new ResponseEntity<Optional<Movie>>(movieService.getMovieById(id), HttpStatus.OK);
+    @GetMapping("/{imdbId}")
+    public ResponseEntity<Optional<Movie>> getMovieByimdbId(
+            @Parameter(description = "Movie imdbId", required = true) @PathVariable String imdbId) {
+        return new ResponseEntity<Optional<Movie>>(movieService.getMovieByimdbId(imdbId), HttpStatus.OK);
     }
 
     /**
