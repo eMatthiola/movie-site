@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @Date 2025/2/9 11:21
  */
 
-@Document(collection = "review")
+@Document(collection = "reviews")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -23,4 +23,8 @@ public class Review {
     private ObjectId id;
 
     private String body;
+
+    public Review(String body) {
+        this.body = body;
+    }
 }
