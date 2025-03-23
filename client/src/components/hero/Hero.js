@@ -20,7 +20,7 @@ const Hero = ({movies}) => {
     <div className='movie-carousel-container'>
         <Carousel>
             {
-                movies.map((movie) =>{
+                Array.isArray(movies) && movies.map((movie) =>{
                     return(
                         <Paper key={movie.imdbId}>
                             <div className='movie-card-container'>
