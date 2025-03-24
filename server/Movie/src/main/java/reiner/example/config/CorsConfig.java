@@ -21,7 +21,7 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
                         .allowedOrigins("http://localhost:3000",
-                                "https://movie-site-kngb343pm-youweis-projects.vercel.app")
+                                "https://movie-site-eight-flax.vercel.app")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*");
             }
