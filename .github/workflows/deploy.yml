@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # happen when push in main branch  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+    - name: Deploy to EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no ec2-user@35.183.30.185 << 'EOF'
+          cd movie-site
+          git pull origin main
+          cd server/Movie
+          ./mvnw package -DskipTests
+          docker stop movie-backend-container || true
+          docker rm movie-backend-container || true
+          docker build -t movie-backend:latest .
+          docker run -d -p 8080:8080 --name movie-backend-container --env-file .env movie-backend:latest
+        EOF
