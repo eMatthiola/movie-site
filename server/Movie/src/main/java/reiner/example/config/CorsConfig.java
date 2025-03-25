@@ -23,7 +23,9 @@ public class CorsConfig {
                         .allowedOrigins("http://localhost:3000",
                                 "https://movie-site-eight-flax.vercel.app")// Add the URL of the frontend application
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+
             }
         };
     }
