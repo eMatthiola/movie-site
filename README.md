@@ -1,8 +1,4 @@
 # movie-site
-
-一、数据库操作（MyBatis）
-CRUD（增删改查）
-
 @Mapper + @Select / @Insert / @Update / @Delete
 ResultMap 处理复杂映射
 关联查询（one-to-one / one-to-many）
