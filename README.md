@@ -1,22 +1,27 @@
 # movie-site
-@Mapper + @Select / @Insert / @Update / @Delete
-ResultMap 处理复杂映射
-关联查询（one-to-one / one-to-many）
-分页查询
+Redis or not Redis Comparision by using Jmeter
 
-LIMIT + OFFSET 方式
-使用 MyBatis 插件（如 PageHelper）
-动态 SQL
+![image](https://github.com/user-attachments/assets/3fc3a74c-4845-4cd9-9428-4c077ccb333e)
 
-<if>、<choose>、<foreach> 处理复杂查询
-事务管理
+![image](https://github.com/user-attachments/assets/5af10d11-dc11-4346-be02-d13025088b50)
+
+🧪 Performance Test (JMeter)
+
+| Metric               | Without Redis | With Redis | Improvement       |
+|----------------------|---------------|------------|-------------------|
+| Average Time (ms)    | 793 ms        | 241 ms     | ⚡ ~3x faster      |
+| Max Response (ms)    | 1272 ms       | 436 ms     | 🔽 ~65% reduction |
+| Throughput           | 3380/sec      | 6105/sec   | 🚀 ~80% higher     |
+| Std Deviation        | 299 ms        | 117 ms     | 📉 More stable     |
+
+
 
 @Transactional 事务注解
 配置 事务传播机制（PROPAGATION_REQUIRED、PROPAGATION_NESTED）
 
 
 二、Spring 核心功能
-依赖注入（DI）& 控制反转（IoC）
+
 
 @Component、@Service、@Repository
 @Autowired / @Qualifier / @Resource
